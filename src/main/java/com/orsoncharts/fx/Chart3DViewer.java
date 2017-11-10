@@ -2,7 +2,7 @@
  * Orson Charts : a 3D chart library for the Java(tm) platform
  * ===========================================================
  * 
- * (C)opyright 2013-2016, by Object Refinery Limited.  All rights reserved.
+ * (C)opyright 2013-2017, by Object Refinery Limited.  All rights reserved.
  * 
  * http://www.object-refinery.com/orsoncharts/index.html
  * 
@@ -35,12 +35,11 @@ package com.orsoncharts.fx;
 import java.io.File;
 import java.io.IOException;
 import javafx.scene.control.ContextMenu;
-import javafx.scene.control.Control;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
-import javafx.scene.control.Skinnable;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Region;
 import javafx.stage.FileChooser;
 import javafx.stage.WindowEvent;
 import com.orsoncharts.Chart3D;
@@ -51,6 +50,7 @@ import com.orsoncharts.graphics3d.ViewPoint3D;
 import com.orsoncharts.interaction.fx.FXChart3DMouseEvent;
 import com.orsoncharts.util.ArgChecks;
 import com.orsoncharts.util.ExportFormats;
+import javafx.scene.input.ContextMenuEvent;
 
 /**
  * A control for displaying a {@link Chart3D} in JavaFX.  This control embeds
@@ -58,10 +58,7 @@ import com.orsoncharts.util.ExportFormats;
  * 
  * @since 1.4
  */
-public class Chart3DViewer extends Control implements Skinnable {
-    
-    /** The chart to display. */
-    private Chart3D chart;
+public class Chart3DViewer extends Region {
 
     /** 
      * The chart canvas (which is a child node for this control).  This 
@@ -96,9 +93,16 @@ public class Chart3DViewer extends Control implements Skinnable {
      */
     public Chart3DViewer(Chart3D chart, boolean contextMenuEnabled) {
         ArgChecks.nullNotPermitted(chart, "chart");
-        this.chart = chart;
-        getStyleClass().add("chart3d-control");
+        this.canvas = new Chart3DCanvas(chart);
+        this.canvas.setTooltipEnabled(true);
+        setFocusTraversable(true);
+        getChildren().add(this.canvas);
+        
         this.contextMenu = createContextMenu();
+        setOnContextMenuRequested((ContextMenuEvent event) -> {
+            contextMenu.show(Chart3DViewer.this.getScene().getWindow(),
+                    event.getScreenX(), event.getScreenY());
+        });
         this.contextMenu.setOnShowing((WindowEvent event) -> {
             Chart3DViewer viewer = Chart3DViewer.this;
             if (viewer.canvas != null) {
@@ -113,7 +117,6 @@ public class Chart3DViewer extends Control implements Skinnable {
                 viewer.canvas.setTooltipEnabled(true);
             }
         });
-        setContextMenu(this.contextMenu);
     }
 
     /**
@@ -122,7 +125,7 @@ public class Chart3DViewer extends Control implements Skinnable {
      * @return The chart (never {@code null}). 
      */
     public Chart3D getChart() {
-        return this.chart;
+        return this.canvas.getChart();
     }
     
     /**
@@ -132,7 +135,6 @@ public class Chart3DViewer extends Control implements Skinnable {
      */
     public void setChart(Chart3D chart) {
         ArgChecks.nullNotPermitted(chart, "chart");
-        this.chart = chart;
         this.canvas.setChart(chart);
     }
 
@@ -240,7 +242,7 @@ public class Chart3DViewer extends Control implements Skinnable {
      *         1.0 zooms out). 
      */
     private void handleZoom(double multiplier) {
-        ViewPoint3D viewPt = this.chart.getViewPoint();
+        ViewPoint3D viewPt = getChart().getViewPoint();
         double minDistance = this.canvas.getMinViewingDistance();
         double maxDistance = minDistance 
                 * this.canvas.getMaxViewingDistanceMultiplier();
@@ -269,7 +271,7 @@ public class Chart3DViewer extends Control implements Skinnable {
         fileChooser.setTitle("Export to PDF");
         File file = fileChooser.showSaveDialog(this.getScene().getWindow());
         if (file != null) {
-            ExportUtils.writeAsPDF(this.chart, (int) getWidth(), 
+            ExportUtils.writeAsPDF(getChart(), (int) getWidth(), 
                     (int) getHeight(), file);
         } 
     }
@@ -284,7 +286,7 @@ public class Chart3DViewer extends Control implements Skinnable {
                 "Scalable Vector Graphics (SVG)", "svg"));
         File file = fileChooser.showSaveDialog(this.getScene().getWindow());
         if (file != null) {
-            ExportUtils.writeAsSVG(this.chart, (int) getWidth(), 
+            ExportUtils.writeAsSVG(getChart(), (int) getWidth(), 
                     (int) getHeight(), file);
         }
     }
@@ -300,7 +302,7 @@ public class Chart3DViewer extends Control implements Skinnable {
         File file = fileChooser.showSaveDialog(this.getScene().getWindow());
         if (file != null) {
             try {
-                ExportUtils.writeAsPNG(this.chart, (int) getWidth(),
+                ExportUtils.writeAsPNG(getChart(), (int) getWidth(),
                         (int) getHeight(), file);
             } catch (IOException ex) {
                 // FIXME: show a dialog with the error
@@ -319,18 +321,21 @@ public class Chart3DViewer extends Control implements Skinnable {
         File file = fileChooser.showSaveDialog(this.getScene().getWindow());
         if (file != null) {
             try {
-                ExportUtils.writeAsJPEG(this.chart, (int) getWidth(),
+                ExportUtils.writeAsJPEG(getChart(), (int) getWidth(),
                         (int) getHeight(), file);
             } catch (IOException ex) {
                 // FIXME: show a dialog with the error
             }
         }        
     }
-
+    
     @Override
-    public String getUserAgentStylesheet() {
-        return Chart3DViewer.class.getResource("chart3d-viewer.css")
-                .toExternalForm();
+    protected void layoutChildren() {
+        super.layoutChildren();
+        this.canvas.setLayoutX(getLayoutX());
+        this.canvas.setLayoutY(getLayoutY());
+        this.canvas.setWidth(getWidth());
+        this.canvas.setHeight(getHeight());
     }
  
 }
