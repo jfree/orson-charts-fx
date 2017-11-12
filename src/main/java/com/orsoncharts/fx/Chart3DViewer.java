@@ -1,6 +1,6 @@
-/* ===========================================================
- * Orson Charts : a 3D chart library for the Java(tm) platform
- * ===========================================================
+/* ====================================================
+ * Orson Charts FX - JavaFX Extensions for Orson Charts
+ * ====================================================
  * 
  * (C)opyright 2013-2017, by Object Refinery Limited.  All rights reserved.
  * 
@@ -38,6 +38,7 @@ import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
 import javafx.stage.FileChooser;
@@ -50,13 +51,10 @@ import com.orsoncharts.graphics3d.ViewPoint3D;
 import com.orsoncharts.interaction.fx.FXChart3DMouseEvent;
 import com.orsoncharts.util.ArgChecks;
 import com.orsoncharts.util.ExportFormats;
-import javafx.scene.input.ContextMenuEvent;
 
 /**
  * A control for displaying a {@link Chart3D} in JavaFX.  This control embeds
  * a {@link Chart3DCanvas} and also provides a context menu.
- * 
- * @since 1.4
  */
 public class Chart3DViewer extends Region {
 
@@ -94,6 +92,16 @@ public class Chart3DViewer extends Region {
     public Chart3DViewer(Chart3D chart, boolean contextMenuEnabled) {
         ArgChecks.nullNotPermitted(chart, "chart");
         this.canvas = new Chart3DCanvas(chart);
+        this.canvas.addEventHandler(MouseEvent.MOUSE_CLICKED, 
+                (MouseEvent event) -> {
+            RenderingInfo info = canvas.getRenderingInfo();
+            RenderedElement element = info.findElementAt(
+                    event.getX(), event.getY());
+
+            Chart3DViewer viewer = Chart3DViewer.this;
+            viewer.fireEvent(new FXChart3DMouseEvent(viewer,
+                    FXChart3DMouseEvent.MOUSE_CLICKED, element, event)); 
+        });
         this.canvas.setTooltipEnabled(true);
         setFocusTraversable(true);
         getChildren().add(this.canvas);
