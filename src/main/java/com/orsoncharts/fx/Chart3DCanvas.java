@@ -1,8 +1,8 @@
-/* ===========================================================
- * Orson Charts : a 3D chart library for the Java(tm) platform
- * ===========================================================
+/* ====================================================
+ * Orson Charts FX : JavaFX extensions for Orson Charts
+ * ====================================================
  * 
- * (C)opyright 2013-2016, by Object Refinery Limited.  All rights reserved.
+ * (C)opyright 2013-2017, by Object Refinery Limited.  All rights reserved.
  * 
  * http://www.object-refinery.com/orsoncharts/index.html
  * 
@@ -58,8 +58,6 @@ import org.jfree.fx.FXGraphics2D;
  * A canvas node for displaying a {@link Chart3D} in JavaFX.  This node
  * handles mouse events and tooltips but does not provide a context menu or
  * toolbar (these features are provided by the {@link Chart3DViewer} class.)
- * 
- * @since 1.4
  */
 public class Chart3DCanvas extends Canvas implements Chart3DChangeListener {
     
