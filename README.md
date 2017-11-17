@@ -6,11 +6,17 @@ Version 1.0, 17 November 2017.
 Overview
 --------
 Orson Charts FX is an extension for [Orson Charts](https://github.com/jfree/orson-charts "Orson Charts Project Page at GitHub") 
-that allows Orson Charts to be used in JavaFX applications.  Orson Charts FX has 
-dependencies on:
+that allows Orson Charts to be used in JavaFX applications.
+
+![Orson Charts sample](http://www.object-refinery.com/orsoncharts/images/orsoncharts_fx.png)
+
+Orson Charts FX has dependencies on:
 
 * Orson Charts 1.7
 * FXGraphics2D 1.6
+
+...and requires JDK 1.8 or later.
+
 
 Demo Programs
 -------------
