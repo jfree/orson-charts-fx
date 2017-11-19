@@ -23,3 +23,14 @@ Demo Programs
 There are demo programs for this API provided in the following project:
 
 https://github.com/jfree/jfree-fxdemos
+
+
+Include
+-------
+To include Orson Charts FX in your own projects, use the following Maven dependency:
+
+    <dependency>
+        <groupId>com.object-refinery</groupId>
+        <artifactId>orson-charts-fx</artifactId>
+        <version>1.0</version>
+    </dependency>
