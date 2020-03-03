@@ -44,12 +44,12 @@ import javafx.scene.layout.Region;
 import javafx.stage.FileChooser;
 import javafx.stage.WindowEvent;
 import com.orsoncharts.Chart3D;
-import com.orsoncharts.graphics3d.ExportUtils;
+import com.orsoncharts.export.ExportFormats;
+import com.orsoncharts.export.ExportUtils;
 import com.orsoncharts.graphics3d.RenderedElement;
 import com.orsoncharts.graphics3d.RenderingInfo;
 import com.orsoncharts.graphics3d.ViewPoint3D;
 import com.orsoncharts.interaction.fx.FXChart3DMouseEvent;
-import com.orsoncharts.util.ExportFormats;
 import java.util.Objects;
 
 /**
