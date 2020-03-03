@@ -49,8 +49,8 @@ import com.orsoncharts.graphics3d.RenderedElement;
 import com.orsoncharts.graphics3d.RenderingInfo;
 import com.orsoncharts.graphics3d.ViewPoint3D;
 import com.orsoncharts.interaction.fx.FXChart3DMouseEvent;
-import com.orsoncharts.util.ArgChecks;
 import com.orsoncharts.util.ExportFormats;
+import java.util.Objects;
 
 /**
  * A control for displaying a {@link Chart3D} in JavaFX.  This control embeds
@@ -90,7 +90,7 @@ public class Chart3DViewer extends Region {
      * @param contextMenuEnabled  enable the context menu?
      */
     public Chart3DViewer(Chart3D chart, boolean contextMenuEnabled) {
-        ArgChecks.nullNotPermitted(chart, "chart");
+        Objects.requireNonNull(chart, "chart");
         this.canvas = new Chart3DCanvas(chart);
         this.canvas.addEventHandler(MouseEvent.MOUSE_CLICKED, 
                 (MouseEvent event) -> {
@@ -142,7 +142,7 @@ public class Chart3DViewer extends Region {
      * @param chart  the chart ({@code null} not permitted). 
      */
     public void setChart(Chart3D chart) {
-        ArgChecks.nullNotPermitted(chart, "chart");
+        Objects.requireNonNull(chart, "chart");
         this.canvas.setChart(chart);
     }
 
@@ -163,7 +163,7 @@ public class Chart3DViewer extends Region {
      * @param canvas  the canvas ({@code null} not permitted). 
      */
     public void setCanvas(final Chart3DCanvas canvas) {
-        ArgChecks.nullNotPermitted(canvas, "canvas");
+        Objects.requireNonNull(canvas, "canvas");
         this.canvas = canvas;
         this.canvas.addEventHandler(MouseEvent.MOUSE_CLICKED, 
                 (MouseEvent event) -> {
@@ -227,7 +227,7 @@ public class Chart3DViewer extends Region {
         
         // automatically detect if OrsonPDF is on the classpath and, if it is,
         // provide a PDF export menu item
-        if (ExportFormats.isOrsonPDFAvailable()) {
+        if (ExportFormats.isJFreePDFAvailable()) {
             MenuItem pdfItem = new MenuItem("PDF...");
             pdfItem.setOnAction(e -> { handleExportToPDF(); });
             export.getItems().add(pdfItem);

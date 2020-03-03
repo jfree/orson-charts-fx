@@ -2,7 +2,7 @@
  * Orson Charts FX : JavaFX extensions for Orson Charts
  * ====================================================
  * 
- * (C)opyright 2013-2017, by Object Refinery Limited.  All rights reserved.
+ * (C)opyright 2013-2020, by Object Refinery Limited.  All rights reserved.
  * 
  * http://www.object-refinery.com/orsoncharts/index.html
  * 
@@ -51,7 +51,7 @@ import com.orsoncharts.graphics3d.Object3D;
 import com.orsoncharts.graphics3d.Offset2D;
 import com.orsoncharts.graphics3d.RenderingInfo;
 import com.orsoncharts.graphics3d.ViewPoint3D;
-import com.orsoncharts.util.ArgChecks;
+import java.util.Objects;
 import org.jfree.fx.FXGraphics2D;
 
 /**
@@ -161,7 +161,7 @@ public class Chart3DCanvas extends Canvas implements Chart3DChangeListener {
      * @param chart  the chart ({@code null} not permitted). 
      */
     public void setChart(Chart3D chart) {
-        ArgChecks.nullNotPermitted(chart, "chart");
+        Objects.requireNonNull(chart, "chart");
         if (this.chart != null) {
             this.chart.removeChangeListener(this);
         }
