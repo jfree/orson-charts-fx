@@ -2,9 +2,9 @@
  * Orson Charts FX - JavaFX Extensions for Orson Charts
  * ====================================================
  * 
- * (C)opyright 2013-2017, by Object Refinery Limited.  All rights reserved.
+ * (C)opyright 2013-2020, by Object Refinery Limited.  All rights reserved.
  * 
- * http://www.object-refinery.com/orsoncharts/index.html
+ * https://github.com/jfree/orson-charts-fx
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,6 +34,7 @@ package com.orsoncharts.fx;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Objects;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
@@ -49,8 +50,7 @@ import com.orsoncharts.export.ExportUtils;
 import com.orsoncharts.graphics3d.RenderedElement;
 import com.orsoncharts.graphics3d.RenderingInfo;
 import com.orsoncharts.graphics3d.ViewPoint3D;
-import com.orsoncharts.interaction.fx.FXChart3DMouseEvent;
-import java.util.Objects;
+import com.orsoncharts.fx.interaction.FXChart3DMouseEvent;
 
 /**
  * A control for displaying a {@link Chart3D} in JavaFX.  This control embeds

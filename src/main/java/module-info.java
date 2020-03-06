@@ -9,5 +9,5 @@ module org.jfree.chart3d.fx {
     requires org.jfree.chart3d;
     requires org.jfree.fxgraphics2d;
     exports com.orsoncharts.fx;
-    exports com.orsoncharts.interaction.fx;
+    exports com.orsoncharts.fx.interaction;
 }

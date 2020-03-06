@@ -2,9 +2,9 @@
  * Orson Charts FX : JavaFX extensions for Orson Charts
  * ====================================================
  * 
- * (C)opyright 2013-2017, by Object Refinery Limited.  All rights reserved.
+ * (C)opyright 2013-2020, by Object Refinery Limited.  All rights reserved.
  * 
- * http://www.object-refinery.com/orsoncharts/index.html
+ * https://github.com/jfree/orson-charts-fx
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -30,13 +30,13 @@
  * 
  */
 
-package com.orsoncharts.interaction.fx;
+package com.orsoncharts.fx.interaction;
 
-import com.orsoncharts.fx.Chart3DViewer;
-import com.orsoncharts.graphics3d.RenderedElement;
 import javafx.event.Event;
 import javafx.event.EventType;
 import javafx.scene.input.MouseEvent;
+import com.orsoncharts.fx.Chart3DViewer;
+import com.orsoncharts.graphics3d.RenderedElement;
 
 /**
  * A chart mouse event for the {@link Chart3DViewer} component.
