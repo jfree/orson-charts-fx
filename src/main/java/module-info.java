@@ -1,9 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Orson Charts FX extends Orson Charts to provide support for JavaFX.
  */
-
 module org.jfree.chart3d.fx {
     requires java.desktop;
     requires javafx.base;
@@ -11,4 +8,6 @@ module org.jfree.chart3d.fx {
     requires javafx.controls;
     requires org.jfree.chart3d;
     requires org.jfree.fxgraphics2d;
+    exports com.orsoncharts.fx;
+    exports com.orsoncharts.interaction.fx;
 }
