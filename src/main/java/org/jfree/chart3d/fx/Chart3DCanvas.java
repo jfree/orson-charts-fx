@@ -30,28 +30,28 @@
  * 
  */
 
-package com.orsoncharts.fx;
+package org.jfree.chart3d.fx;
 
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.geom.Dimension2D;
+import java.util.Objects;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
-import com.orsoncharts.Chart3D;
-import com.orsoncharts.Chart3DChangeEvent;
-import com.orsoncharts.Chart3DChangeListener;
-import com.orsoncharts.data.ItemKey;
-import com.orsoncharts.graphics3d.Dimension3D;
-import com.orsoncharts.graphics3d.Object3D;
-import com.orsoncharts.graphics3d.Offset2D;
-import com.orsoncharts.graphics3d.RenderingInfo;
-import com.orsoncharts.graphics3d.ViewPoint3D;
-import java.util.Objects;
+import org.jfree.chart3d.Chart3D;
+import org.jfree.chart3d.Chart3DChangeEvent;
+import org.jfree.chart3d.Chart3DChangeListener;
+import org.jfree.chart3d.data.ItemKey;
+import org.jfree.chart3d.graphics3d.Dimension3D;
+import org.jfree.chart3d.graphics3d.Object3D;
+import org.jfree.chart3d.graphics3d.Offset2D;
+import org.jfree.chart3d.graphics3d.RenderingInfo;
+import org.jfree.chart3d.graphics3d.ViewPoint3D;
 import org.jfree.fx.FXGraphics2D;
 
 /**

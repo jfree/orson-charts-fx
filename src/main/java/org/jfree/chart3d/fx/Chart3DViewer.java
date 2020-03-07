@@ -30,7 +30,7 @@
  * 
  */
 
-package com.orsoncharts.fx;
+package org.jfree.chart3d.fx;
 
 import java.io.File;
 import java.io.IOException;
@@ -44,13 +44,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
 import javafx.stage.FileChooser;
 import javafx.stage.WindowEvent;
-import com.orsoncharts.Chart3D;
-import com.orsoncharts.export.ExportFormats;
-import com.orsoncharts.export.ExportUtils;
-import com.orsoncharts.graphics3d.RenderedElement;
-import com.orsoncharts.graphics3d.RenderingInfo;
-import com.orsoncharts.graphics3d.ViewPoint3D;
-import com.orsoncharts.fx.interaction.FXChart3DMouseEvent;
+import org.jfree.chart3d.Chart3D;
+import org.jfree.chart3d.export.ExportFormats;
+import org.jfree.chart3d.export.ExportUtils;
+import org.jfree.chart3d.fx.interaction.FXChart3DMouseEvent;
+import org.jfree.chart3d.graphics3d.RenderedElement;
+import org.jfree.chart3d.graphics3d.RenderingInfo;
+import org.jfree.chart3d.graphics3d.ViewPoint3D;
 
 /**
  * A control for displaying a {@link Chart3D} in JavaFX.  This control embeds

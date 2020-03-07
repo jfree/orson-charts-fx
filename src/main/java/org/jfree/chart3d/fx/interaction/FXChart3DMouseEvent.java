@@ -30,13 +30,13 @@
  * 
  */
 
-package com.orsoncharts.fx.interaction;
+package org.jfree.chart3d.fx.interaction;
 
 import javafx.event.Event;
 import javafx.event.EventType;
 import javafx.scene.input.MouseEvent;
-import com.orsoncharts.fx.Chart3DViewer;
-import com.orsoncharts.graphics3d.RenderedElement;
+import org.jfree.chart3d.fx.Chart3DViewer;
+import org.jfree.chart3d.graphics3d.RenderedElement;
 
 /**
  * A chart mouse event for the {@link Chart3DViewer} component.
