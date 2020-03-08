@@ -49,7 +49,6 @@ import org.jfree.chart3d.Chart3DChangeListener;
 import org.jfree.chart3d.data.ItemKey;
 import org.jfree.chart3d.graphics3d.Dimension3D;
 import org.jfree.chart3d.graphics3d.Object3D;
-import org.jfree.chart3d.graphics3d.Offset2D;
 import org.jfree.chart3d.graphics3d.RenderingInfo;
 import org.jfree.chart3d.graphics3d.ViewPoint3D;
 import org.jfree.fx.FXGraphics2D;
@@ -67,7 +66,7 @@ public class Chart3DCanvas extends Canvas implements Chart3DChangeListener {
     /**
      * The graphics drawing context (will be an instance of FXGraphics2D).
      */
-    private Graphics2D g2;
+    private final Graphics2D g2;
 
     /** The rendering info from the last drawing of the chart. */
     private RenderingInfo renderingInfo;
@@ -105,12 +104,6 @@ public class Chart3DCanvas extends Canvas implements Chart3DChangeListener {
      */
     private Point lastMovePoint;
     
-    /**
-     * Temporary state to track the 2D offset during an ALT-mouse-drag
-     * operation.
-     */
-    private Offset2D offsetAtMousePressed;
-    
     /** The tooltip object for the canvas. */
     private Tooltip tooltip;
     
@@ -128,7 +121,7 @@ public class Chart3DCanvas extends Canvas implements Chart3DChangeListener {
     public Chart3DCanvas(Chart3D chart) {
         this.chart = chart;
         this.minViewingDistance = chart.getDimensions().getDiagonalLength();
-        this.maxViewingDistanceMultiplier = 8.0;        
+        this.maxViewingDistanceMultiplier = 8.0;
         widthProperty().addListener(e -> draw());
         heightProperty().addListener(e -> draw());
         this.g2 = new FXGraphics2D(getGraphicsContext2D());
