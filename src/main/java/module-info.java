@@ -1,5 +1,11 @@
 /**
- * Orson Charts FX extends Orson Charts to provide support for JavaFX.
+ * Orson Charts FX extends Orson Charts to provide support for JavaFX.  For the 
+ * latest information about these projects, please visit their respective 
+ * GitHub pages:
+ * <ul>
+ * <li><a href="https://github.com/jfree/orson-charts-fx">https://github.com/jfree/orson-charts-fx</a>
+ * <li><a href="https://github.com/jfree/orson-charts">https://github.com/jfree/orson-charts</a>
+ * </ul>
  */
 module org.jfree.chart3d.fx {
     requires java.desktop;
