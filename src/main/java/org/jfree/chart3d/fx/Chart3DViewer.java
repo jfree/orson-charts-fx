@@ -58,6 +58,10 @@ import org.jfree.chart3d.graphics3d.ViewPoint3D;
  */
 public class Chart3DViewer extends Region {
 
+    private static final int DEFAULT_MIN_WIDTH = 50;
+
+    private static final int DEFAULT_MIN_HEIGHT = 50;
+
     /** 
      * The chart canvas (which is a child node for this control).  This 
      * reference is kept for convenience, and is initialised by the control's
@@ -91,6 +95,8 @@ public class Chart3DViewer extends Region {
      */
     public Chart3DViewer(Chart3D chart, boolean contextMenuEnabled) {
         Objects.requireNonNull(chart, "chart");
+        setMinSize(DEFAULT_MIN_WIDTH, DEFAULT_MIN_HEIGHT);
+        setPrefSize(DEFAULT_MIN_WIDTH, DEFAULT_MIN_HEIGHT);
         this.canvas = new Chart3DCanvas(chart);
         this.canvas.addEventHandler(MouseEvent.MOUSE_CLICKED, 
                 (MouseEvent event) -> {
@@ -153,28 +159,6 @@ public class Chart3DViewer extends Region {
      */
     public Chart3DCanvas getCanvas() {
         return this.canvas;
-    }
-    
-    /**
-     * Sets the canvas used within this control to display the chart.
-     * This method is called by the control's skin, you should not need to
-     * call it directly.
-     * 
-     * @param canvas  the canvas ({@code null} not permitted). 
-     */
-    public void setCanvas(final Chart3DCanvas canvas) {
-        Objects.requireNonNull(canvas, "canvas");
-        this.canvas = canvas;
-        this.canvas.addEventHandler(MouseEvent.MOUSE_CLICKED, 
-                (MouseEvent event) -> {
-            RenderingInfo info = canvas.getRenderingInfo();
-            RenderedElement element = info.findElementAt(
-                    event.getX(), event.getY());
-
-            Chart3DViewer viewer = Chart3DViewer.this;
-            viewer.fireEvent(new FXChart3DMouseEvent(viewer,
-                    FXChart3DMouseEvent.MOUSE_CLICKED, element, event)); 
-        });
     }
 
     /**
@@ -340,8 +324,8 @@ public class Chart3DViewer extends Region {
     @Override
     protected void layoutChildren() {
         super.layoutChildren();
-        this.canvas.setLayoutX(getLayoutX());
-        this.canvas.setLayoutY(getLayoutY());
+        this.canvas.setLayoutX(0);
+        this.canvas.setLayoutY(0);
         this.canvas.setWidth(getWidth());
         this.canvas.setHeight(getHeight());
     }
