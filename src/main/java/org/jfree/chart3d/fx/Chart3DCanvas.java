@@ -436,9 +436,13 @@ public class Chart3DCanvas extends Canvas implements Chart3DChangeListener {
         draw();
     }
 
+    /**
+     * Redraws the chart whenever a chart change event is received.
+     * 
+     * @param event  the event ({@code null} not permitted). 
+     */
     @Override
     public void chartChanged(Chart3DChangeEvent event) {
         draw();
     }
 }
-

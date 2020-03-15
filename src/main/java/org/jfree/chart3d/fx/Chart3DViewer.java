@@ -320,7 +320,11 @@ public class Chart3DViewer extends Region {
             }
         }        
     }
-    
+
+    /**
+     * Called by the JavaFX layout mechanism, this method aligns the underlying
+     * chart canvas with the bounds of the viewer.
+     */
     @Override
     protected void layoutChildren() {
         super.layoutChildren();
