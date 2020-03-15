@@ -1,7 +1,7 @@
 Orson Charts FX
 ===============
 
-Version 2.0, not yet released.
+Version 2.0, 15 March 2020.
 
 Overview
 --------
