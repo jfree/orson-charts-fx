@@ -12,8 +12,8 @@ that allows Orson Charts to be used in JavaFX applications.
 
 Orson Charts FX has dependencies on:
 
-* Orson Charts 2.0-SNAPSHOT
-* FXGraphics2D 2.0
+* `Orson Charts 2.0`
+* `FXGraphics2D 2.0`
 
 ...and requires JDK 11 or later.
 
@@ -32,7 +32,7 @@ To include Orson Charts FX in your own projects, use the following Maven depende
     <dependency>
         <groupId>org.jfree</groupId>
         <artifactId>org.jfree.chart3d.fx</artifactId>
-        <version>2.0-SNAPSHOT</version>
+        <version>2.0</version>
     </dependency>
 
 If you are using JDK8, you can include an older version of Orson Charts FX:
