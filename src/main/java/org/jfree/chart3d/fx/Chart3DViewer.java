@@ -67,10 +67,10 @@ public class Chart3DViewer extends Region {
      * reference is kept for convenience, and is initialised by the control's
      * skin.
      */
-    private Chart3DCanvas canvas;
+    private final Chart3DCanvas canvas;
     
     /** The context menu that will be attached to the canvas. */
-    private ContextMenu contextMenu;
+    private final ContextMenu contextMenu;
     
     /** 
      * The zoom multiplier (applicable for the zoom in and out options in 
@@ -113,10 +113,8 @@ public class Chart3DViewer extends Region {
         getChildren().add(this.canvas);
         
         this.contextMenu = createContextMenu();
-        setOnContextMenuRequested((ContextMenuEvent event) -> {
-            contextMenu.show(Chart3DViewer.this.getScene().getWindow(),
-                    event.getScreenX(), event.getScreenY());
-        });
+        setOnContextMenuRequested((ContextMenuEvent event) -> contextMenu.show(Chart3DViewer.this.getScene().getWindow(),
+                event.getScreenX(), event.getScreenY()));
         this.contextMenu.setOnShowing((WindowEvent event) -> {
             Chart3DViewer viewer = Chart3DViewer.this;
             if (viewer.canvas != null) {
@@ -191,36 +189,36 @@ public class Chart3DViewer extends Region {
     private ContextMenu createContextMenu() {
         final ContextMenu menu = new ContextMenu();
         MenuItem zoomIn = new MenuItem("Zoom In");
-        zoomIn.setOnAction(e -> { handleZoom(this.zoomMultiplier); });
+        zoomIn.setOnAction(e -> handleZoom(this.zoomMultiplier));
         MenuItem zoomOut = new MenuItem("Zoom Out");
-        zoomOut.setOnAction(e -> { handleZoom(1.0 / this.zoomMultiplier); });
+        zoomOut.setOnAction(e -> handleZoom(1.0 / this.zoomMultiplier));
         
         MenuItem zoomToFit = new MenuItem("Zoom To Fit");
-        zoomToFit.setOnAction(e -> { handleZoomToFit(); });
+        zoomToFit.setOnAction(e -> handleZoomToFit());
         
         SeparatorMenuItem separator = new SeparatorMenuItem();
         Menu export = new Menu("Export As");
         
         MenuItem pngItem = new MenuItem("PNG...");
-        pngItem.setOnAction(e -> { handleExportToPNG(); });        
+        pngItem.setOnAction(e -> handleExportToPNG());
         export.getItems().add(pngItem);
         
         MenuItem jpegItem = new MenuItem("JPEG...");
-        jpegItem.setOnAction(e -> { handleExportToJPEG(); });        
+        jpegItem.setOnAction(e -> handleExportToJPEG());
         export.getItems().add(jpegItem);
         
         // automatically detect if OrsonPDF is on the classpath and, if it is,
         // provide a PDF export menu item
         if (ExportFormats.isJFreePDFAvailable()) {
             MenuItem pdfItem = new MenuItem("PDF...");
-            pdfItem.setOnAction(e -> { handleExportToPDF(); });
+            pdfItem.setOnAction(e -> handleExportToPDF());
             export.getItems().add(pdfItem);
         }
         // automatically detect if JFreeSVG is on the classpath and, if it is,
         // provide a SVG export menu item
         if (ExportFormats.isJFreeSVGAvailable()) {
             MenuItem svgItem = new MenuItem("SVG...");
-            svgItem.setOnAction(e -> { handleExportToSVG(); });
+            svgItem.setOnAction(e -> handleExportToSVG());
             export.getItems().add(svgItem);        
         }
         menu.getItems().addAll(zoomIn, zoomOut, zoomToFit, separator, export);

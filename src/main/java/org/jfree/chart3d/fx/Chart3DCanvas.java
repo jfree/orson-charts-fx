@@ -126,7 +126,7 @@ public class Chart3DCanvas extends Canvas implements Chart3DChangeListener {
         heightProperty().addListener(e -> draw());
         this.g2 = new FXGraphics2D(getGraphicsContext2D());
 
-        setOnMouseMoved((MouseEvent me) -> { updateTooltip(me); });
+        setOnMouseMoved(this::updateTooltip);
         setOnMousePressed((MouseEvent me) -> {
             Chart3DCanvas canvas = Chart3DCanvas.this;
             canvas.lastClickPoint = new Point((int) me.getScreenX(),
@@ -134,8 +134,8 @@ public class Chart3DCanvas extends Canvas implements Chart3DChangeListener {
             canvas.lastMovePoint = canvas.lastClickPoint;
         });
 
-        setOnMouseDragged((MouseEvent me) -> { handleMouseDragged(me); });
-        setOnScroll((ScrollEvent event) -> { handleScroll(event); });
+        setOnMouseDragged(this::handleMouseDragged);
+        setOnScroll(this::handleScroll);
         this.chart.addChangeListener(this);
     }
     

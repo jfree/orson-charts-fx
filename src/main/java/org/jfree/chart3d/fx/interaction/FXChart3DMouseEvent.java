@@ -47,11 +47,11 @@ public class FXChart3DMouseEvent extends Event {
 
     /** Mouse clicked event type. */
     public static final EventType<FXChart3DMouseEvent> MOUSE_CLICKED 
-            = new EventType<FXChart3DMouseEvent>("FXChart3DMouseEvent.CLICKED");
+            = new EventType<>("FXChart3DMouseEvent.CLICKED");
     
     /** Mouse moved event type. */
     public static final EventType<FXChart3DMouseEvent> MOUSE_MOVED 
-            = new EventType<FXChart3DMouseEvent>("FXChart3DMouseEvent.MOVED");
+            = new EventType<>("FXChart3DMouseEvent.MOVED");
 
     /** The chart element under the mouse pointer. */
     private final RenderedElement element;
