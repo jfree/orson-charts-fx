@@ -1,19 +1,19 @@
 Orson Charts FX
 ===============
 
-Version 2.1, 24 May 2021.
+Version 2.1.2, 23 January 2022.
 
 Overview
 --------
-Orson Charts FX is an extension for [Orson Charts](https://github.com/jfree/orson-charts "Orson Charts Project Page at GitHub") 
-that allows Orson Charts to be used in JavaFX applications.
+**Orson Charts FX** is an extension for [Orson Charts](https://github.com/jfree/orson-charts "Orson Charts Project Page at GitHub") 
+that allows **Orson Charts** to be used in JavaFX applications.
 
 ![Orson Charts sample](http://www.object-refinery.com/orsoncharts/images/orsoncharts_fx.png)
 
 Orson Charts FX has dependencies on:
 
-* `Orson Charts 2.0`
-* `FXGraphics2D 2.1.1`
+* `Orson Charts v2.1.0`
+* `FXGraphics2D v2.1.3`
 
 ...and requires JDK 11 or later.
 
@@ -32,7 +32,7 @@ To include Orson Charts FX in your own projects, use the following Maven depende
     <dependency>
         <groupId>org.jfree</groupId>
         <artifactId>org.jfree.chart3d.fx</artifactId>
-        <version>2.1</version>
+        <version>2.1.1</version>
     </dependency>
 
 If you are using JDK8, you can include an older version of Orson Charts FX:
@@ -45,7 +45,13 @@ If you are using JDK8, you can include an older version of Orson Charts FX:
 
 History
 -------
+
+##### 23-Jan-2022
+- update `Orson Charts` to version 2.1.0;
+- update `FXGraphics2D` to version 2.1.3;
+- update JavaFX to version 17.0.2.
+
 ##### 24-May-2021
-- updates FXGraphics2D dependency to 2.1.1;
+- updates `FXGraphics2D` dependency to 2.1.1;
 - update JavaFX dependency to version 16.
 

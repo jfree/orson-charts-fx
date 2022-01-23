@@ -1,9 +1,9 @@
 /* ====================================================
  * Orson Charts FX : JavaFX extensions for Orson Charts
  * ====================================================
- * 
- * (C)opyright 2013-2020, by Object Refinery Limited.  All rights reserved.
- * 
+ *
+ * Copyright 2013-2022, by David Gilbert.  All rights reserved.
+ *
  * https://github.com/jfree/orson-charts-fx
  * 
  * This program is free software: you can redistribute it and/or modify
