@@ -8,7 +8,7 @@ Overview
 **Orson Charts FX** is an extension for [Orson Charts](https://github.com/jfree/orson-charts "Orson Charts Project Page at GitHub") 
 to enable it to be used in JavaFX applications.
 
-![Orson Charts sample](http://www.object-refinery.com/orsoncharts/images/orsoncharts_fx.png)
+<img width="1136" alt="Orson Charts sample" src="https://user-images.githubusercontent.com/1835893/150729835-48c0f8e3-b86b-4b84-9024-3cd859ef3796.png">
 
 Orson Charts FX has dependencies on:
 
