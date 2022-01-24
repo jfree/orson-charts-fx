@@ -1,7 +1,7 @@
 Orson Charts FX
 ===============
 
-Version 2.1.2, 24 January 2022.
+Version 2.1.1, 24 January 2022.
 
 Overview
 --------
