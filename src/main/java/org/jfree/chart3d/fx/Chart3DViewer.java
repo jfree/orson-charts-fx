@@ -117,17 +117,13 @@ public class Chart3DViewer extends Region {
                 event.getScreenX(), event.getScreenY()));
         this.contextMenu.setOnShowing((WindowEvent event) -> {
             Chart3DViewer viewer = Chart3DViewer.this;
-            if (viewer.canvas != null) {
-                viewer.canvas.setRotateViewEnabled(false);
-                viewer.canvas.setTooltipEnabled(false);
-            }
+            viewer.canvas.setRotateViewEnabled(false);
+            viewer.canvas.setTooltipEnabled(false);
         });
         this.contextMenu.setOnHiding((WindowEvent event) -> {
             Chart3DViewer viewer = Chart3DViewer.this;
-            if (viewer.canvas != null) {
-                viewer.canvas.setRotateViewEnabled(true);
-                viewer.canvas.setTooltipEnabled(true);
-            }
+            viewer.canvas.setRotateViewEnabled(true);
+            viewer.canvas.setTooltipEnabled(true);
         });
     }
 
@@ -215,7 +211,7 @@ public class Chart3DViewer extends Region {
             export.getItems().add(pdfItem);
         }
         // automatically detect if JFreeSVG is on the classpath and, if it is,
-        // provide a SVG export menu item
+        // provide an SVG export menu item
         if (ExportFormats.isJFreeSVGAvailable()) {
             MenuItem svgItem = new MenuItem("SVG...");
             svgItem.setOnAction(e -> handleExportToSVG());

@@ -270,7 +270,7 @@ public class Chart3DCanvas extends Canvas implements Chart3DChangeListener {
      * Returns the increment for rotating up and down.  This is an angle in
      * radians, and the default value is {@code Math.PI / 120.0}.
      * 
-     * @return The rotate increment. 
+     * @return The rotation increment.
      */
     public double getRotateIncrement() {
         return this.rotateIncrement;
@@ -287,7 +287,7 @@ public class Chart3DCanvas extends Canvas implements Chart3DChangeListener {
     }
  
     /**
-     * Returns the flag that controls whether or not tooltips are enabled.
+     * Returns the flag that controls whether tooltips are enabled.
      * 
      * @return The flag. 
      */
@@ -296,7 +296,7 @@ public class Chart3DCanvas extends Canvas implements Chart3DChangeListener {
     }
 
     /**
-     * Sets the flag that controls whether or not tooltips are enabled.
+     * Sets the flag that controls whether tooltips are enabled.
      * 
      * @param tooltipEnabled  the new flag value. 
      */
@@ -305,8 +305,7 @@ public class Chart3DCanvas extends Canvas implements Chart3DChangeListener {
     }
 
     /**
-     * Returns a flag that controls whether or not rotation by mouse dragging
-     * is enabled.
+     * Returns a flag that controls whether rotation by mouse dragging is enabled.
      * 
      * @return A boolean.
      */
@@ -315,8 +314,7 @@ public class Chart3DCanvas extends Canvas implements Chart3DChangeListener {
     }
 
     /**
-     * Sets the flag that controls whether or not rotation by mouse dragging
-     * is enabled.
+     * Sets the flag that controls whether rotation by mouse dragging is enabled.
      * 
      * @param enabled  the new flag value.
      */
