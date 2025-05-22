@@ -3,6 +3,8 @@ Orson Charts FX
 
 Version 2.1.2, 22 May 2025.
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.jfree/org.jfree.chart3d.fx/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.jfree/org.jfree.chart3d.fx) [![javadoc](https://javadoc.io/badge2/org.jfree/org.jfree.chart3d.fx/javadoc.svg)](https://javadoc.io/doc/org.jfree/org.jfree.chart3d.fx) [![JFXCentral](https://img.shields.io/badge/Find_me_on-JFXCentral-blue?logo=googlechrome&logoColor=white)](https://www.jfx-central.com/libraries/orsonchartsfx)
+
 Overview
 --------
 **Orson Charts FX** is an extension for [Orson Charts](https://github.com/jfree/orson-charts "Orson Charts Project Page at GitHub") 
